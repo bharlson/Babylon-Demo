@@ -97,9 +97,9 @@ function createScene(){
     // crete a texture
     const material2 = new BABYLON.StandardMaterial('material2', scene);
 
-    
+
     // applying an image as a texture
-    material2.diffuseTexture = new BABYLON.Texture('verma-sam.jpg', scene)
+    material2.diffuseTexture = new BABYLON.Texture('img/verma-sam.jpg', scene)
 
     sphere.material = material2;
     return scene; 
