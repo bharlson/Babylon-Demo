@@ -71,12 +71,37 @@ function createScene(){
         new BABYLON.Vector3(2,1,0)
     ];
 
-    //setting endpoints for lines to be drawn between
+    // setting endpoints for lines to be drawn between
     const lines = BABYLON.MeshBuilder.CreateLines('lines', {
         points:linePoints
     }, scene);
 
+    // create a material
+    const material = new BABYLON.StandardMaterial('material', scene);
+    material.diffuseColor = new BABYLON.Color3(1,0,0);
+    // material: the color, 
+
+    // There are four possible ways that a material can react to light.
+    // https://doc.babylonjs.com/divingDeeper/materials/using/materials_introduction
+    // Diffuse - the basic color or texture of the material as viewed under a light;
+    // Specular - the highlight given to the material by a light;
+    // Emissive - the color or texture of the material as if self lit;
+    // Ambient - the color or texture of the material lit by the environmental background lighting.
     
+    // BABYLON.Color3(r,g,b);
+    material.emissiveColor = new BABYLON.Color3(0,2,0);
+
+    // applying material to box
+    box.material = material;
+
+    // crete a texture
+    const material2 = new BABYLON.StandardMaterial('material2', scene);
+
+    
+    // applying an image as a texture
+    material2.diffuseTexture = new BABYLON.Texture('verma-sam.jpg', scene)
+
+    sphere.material = material2;
     return scene; 
     // provides ambient light, affects shading of 3D objects
 }
